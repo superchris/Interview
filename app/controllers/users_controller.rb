@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   
   def update
     if @user.update_attributes(params[:user])
+      flash[:success] = "User saved."
       redirect_to users_path
     else
       render :edit

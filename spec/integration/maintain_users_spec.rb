@@ -15,12 +15,12 @@ describe "User list" do
     Then { page.should have_content("good") }
   end
   
-  describe "changing password" do
+  describe "editing a user" do
     Given do 
       visit users_path
       click_link "Good guy"
     end
-    describe "successfully" do
+    describe "successfully changing password" do
       When do
         fill_in "Password", :with => "bar"
         fill_in "Password confirmation", :with => "bar"
@@ -28,6 +28,7 @@ describe "User list" do
       end
       Then { current_url.should == users_url }
       Then { User.find_by_username("Good guy").authenticate("bar").should be_true }
+      Then { page.should have_content("User saved.")}
     end
     describe "entering different passwords" do
       When do

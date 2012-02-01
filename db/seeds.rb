@@ -3,5 +3,9 @@
 #
 # Examples:
 #
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+nice = Role.create(:name => "Nice")
+naughty = Role.create(:name => "Naughty")
+
+User.create(:username => "Santa", :role => nice, :password => "cringle", :password_confirmation => "cringle")
+User.create(:username => "Frosty", :role => nice, :password => "snowman", :password_confirmation => "snowman")
+User.create(:username => "Abominable", :role => naughty, :password => "ice", :password_confirmation => "ice")
