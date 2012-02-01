@@ -22,11 +22,18 @@ end
 
 gem 'jquery-rails'
 
-group :test do
+group :test, :development do
   gem "rspec-rails", "~> 2.4"
-  gem "rspec-given", :require => "rspec/given"
   gem "shoulda-matchers"
+  gem "capybara"
+  gem "launchy"
 end
+
+group :test do
+  gem "rspec-given", :require => "rspec/given"
+end
+
+gem 'formtastic'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
