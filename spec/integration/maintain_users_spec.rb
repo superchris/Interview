@@ -38,7 +38,16 @@ describe "User list" do
       end
       Then { page.should have_content("doesn't match") }
     end
-        
+    describe "assigning a role" do
+      Given!(:neutral) { Role.create(:name => "Neutral") }
+      When do
+        visit users_path
+        click_link "Good guy"        
+        select "Neutral", :from => "Role"
+        click_button "Update User"
+      end
+      Then { page.should have_content("Neutral") }
+    end
   end
     
 end
